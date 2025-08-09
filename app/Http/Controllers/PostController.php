@@ -73,7 +73,8 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, string $id): RedirectResponse
     {
-        $this->postService->update($request->validated(), $id);
+        $post = $this->postService->find($id);
+        $this->postService->update($request->validated(), $post);
         return redirect()->route('posts.me')->with('success', 'Post updated successfully.');
     }
 

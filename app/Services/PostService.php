@@ -28,9 +28,8 @@ class PostService
         return Post::create($data);
     }
 
-    public function update(array $data, int $id): Post
+    public function update(array $data, Post $post): Post
     {
-        $post = $this->find($id);
         $post->update($data);
         return $post;
     }
