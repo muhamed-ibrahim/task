@@ -63,7 +63,11 @@ Generate encryption key:
 ```bash
 php artisan key:generate
 ```
-### 7. Set Up Mail Configuration (Optional)
+### 7. Run Project
+```bash
+php artisan serve
+```
+### 8. Set Up Mail Configuration (Optional)
 Configure mail settings in `.env` for daily reports:
 ```env
 MAIL_MAILER=smtp
@@ -74,12 +78,12 @@ MAIL_PASSWORD=null
 MAIL_FROM_ADDRESS="hello@example.com"
 MAIL_FROM_NAME="${APP_NAME}"
 ```
-### 8. Generate JWT Secret
+### 9. Generate JWT Secret
 Generate JWT encryption key:
 ```bash
 php artisan jwt:secret
 ```
-### 9. Run Daily Report Command (Optional)
+### 10. Run Daily Report Command (Optional)
 Execute daily email report:
 ```bash
 php artisan app:daily-report
