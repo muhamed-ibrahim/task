@@ -90,7 +90,7 @@ php artisan app:daily-report
 ```
 ## 🛠️ Additional Information
 - **Authentication**: Uses JWT for API authentication
-- **Mail Testing**: Use MailHog/Mailpit for local email capture
+- **Mail Testing**: Use Mailgun/Mailtrap for local email capture
 - **Security**: Never commit `.env` to version control
 ```
 
