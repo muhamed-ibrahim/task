@@ -22,16 +22,10 @@ Route::post('email/verify/resend', [AuthController::class, 'resendEmailVerificat
 
 
 
-
-
 Route::middleware(['auth:web'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('posts/me', [PostController::class, 'myPosts'])->name('posts.me');
     Route::resource('posts', PostController::class);
     Route::resource('users', UserController::class)->middleware('admin');
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
-});
-
-Route::get('/test', function () {
-    return view('emails.email-verification-otp');
 });
