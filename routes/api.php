@@ -12,6 +12,8 @@ Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 Route::get('logout', [AuthController::class, 'logout'])->middleware(['auth:api']);
 
+Route::post('/email/verify', [AuthController::class, 'verifyEmail']);
+Route::post('/email/verify/resend', [AuthController::class, 'resendVerifyEmail']);
 
 
 Route::middleware(['auth:api'])->group(function () {
