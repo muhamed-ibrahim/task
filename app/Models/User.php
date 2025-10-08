@@ -25,6 +25,8 @@ class User extends Authenticatable implements JWTSubject
         'phone_number',
         'is_admin',
         'password',
+        'email_verified_at',
+        'is_email_verified'
     ];
 
     /**
@@ -46,6 +48,7 @@ class User extends Authenticatable implements JWTSubject
     {
         return [
             'email_verified_at' => 'datetime',
+            'is_email_verified' => 'boolean',
             'password' => 'hashed',
         ];
     }
@@ -53,6 +56,24 @@ class User extends Authenticatable implements JWTSubject
     public function posts(): HasMany
     {
         return $this->hasMany(Post::class);
+    }
+
+    public function isEmailVerified(): bool
+    {
+        return $this->is_email_verified === true;
+    }
+
+    public function markEmailAsVerified(): void
+    {
+        $this->update([
+            'email_verified_at' => now(),
+            'is_email_verified' => true
+        ]);
+    }
+
+    public function otps()
+    {
+        return $this->hasMany(Otp::class);
     }
 
     public function getJWTIdentifier()
